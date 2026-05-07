@@ -8,7 +8,7 @@ def user_input(prompt):
             print("Error! Invalid input. Please enter a number.")
 
 def main():
-    calculator = CalculatorProgram
+    calculator = CalculatorProgram()
 
     while True:
         print("\n--- Calculator and Pace Finder ---")
@@ -16,14 +16,14 @@ def main():
         user_choice = input("Enter your desired operation (1-5): ")
 
         if user_choice in ('1', '2', '3', '4'):
-            num_1 = get_number("Enter first number: ")
-            num_2 = get_number("Enter second number: ")
+            num_1 = float(input("Enter first number: "))
+            num_2 = float(input("Enter second number: "))
 
             try:
-                if user_choice == '1': print(f"Result: {calculator.add(num_1, num_2)}")
-                elif user_choice == '2': print(f"Result: {calculator.subtract(num_1, num_2)}")
-                elif user_choice == '3': print(f"Result: {calculator.multiply(num_1, num_2)}")
-                elif user_choice == '4': print(f"Result: {calculator.divide(num_1, num_2)}")
+                if user_choice == '1': print(f"Result: {calculator.addition(num_1, num_2)}")
+                elif user_choice == '2': print(f"Result: {calculator.subtraction(num_1, num_2)}")
+                elif user_choice == '3': print(f"Result: {calculator.multiplication(num_1, num_2)}")
+                elif user_choice == '4': print(f"Result: {calculator.division(num_1, num_2)}")
 
             except ZeroDivisionError as error:
                 print(error)
@@ -53,5 +53,15 @@ def main():
                 except Exception:
                     print("An error occured. Please check your time format.")
         
+            else:
+                print("Invalid distance selection.")
+        
         else:
-            print("Invalid distance selection.")
+             print("Invalid Choice")
+
+        if input("\nTry Again? (yes/no): ").lower() != 'yes':
+            print("Thank you!")
+            break
+
+if __name__ == "__main__":
+    main()
