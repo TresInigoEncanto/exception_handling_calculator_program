@@ -24,5 +24,17 @@ def main():
                 elif user_choice == '2': print(f"Result: {calculator.subtract(num_1, num_2)}")
                 elif user_choice == '3': print(f"Result: {calculator.multiply(num_1, num_2)}")
                 elif user_choice == '4': print(f"Result: {calculator.divide(num_1, num_2)}")
+
             except ZeroDivisionError as error:
                 print(error)
+        
+        elif user_choice == '5':
+            print("\n--- Running Pace Calculator ---")
+            for key, val in calculator.race_distances.items():
+                print(f"{key}. {val[0]}")
+
+            run_distance = input("Select Distance (1-6): ")
+
+            if run_distance in calculator.race_distances:
+                name, distance =  calculator.race_distances[run_distance]
+                elapsed_time = input("Enter your time for {name} (HH:MM:SS, for example: 1:59:30): ")
