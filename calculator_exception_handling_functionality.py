@@ -32,3 +32,8 @@ class CalculatorProgram:
             raise ValueError("Error! Time components cannot be negative.")
         
         return (hours * 60) + minutes + (seconds / 60)
+    
+    def calculate_pace(self, distance_km, total_minutes):
+        if total_minutes <= 0:
+            raise ValueError("Error! Total time must be greater than zero.")
+        return total_minutes / distance_km
