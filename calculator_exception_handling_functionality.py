@@ -25,3 +25,10 @@ class CalculatorProgram:
         hours = int(total_elapsed_time[0])
         minutes = int(total_elapsed_time[1])
         seconds = int(total_elapsed_time[2])
+
+        if not (0 <= minutes < 60 and 0 <= seconds < 60):
+            raise ValueError("Error! Minutes and seconds must be between 0 and 59.")
+        if hours < 0 or minutes < 0 or seconds < 0:
+            raise ValueError("Error! Time components cannot be negative.")
+        
+        return (hours * 60) + minutes + (seconds / 60)
